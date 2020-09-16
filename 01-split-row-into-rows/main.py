@@ -1,5 +1,8 @@
+#! /usr/bin/python3
+
 from openpyxl import Workbook, load_workbook
 from os import path
+from sys import argv
 
 # Configurations ------------------------------------------------------------------------------------------------------------
 COMMON_PART_LEN = 11
@@ -33,7 +36,6 @@ END_ROW_NUMBER = None
 START_SHEET_NUMBER = 0
 END_SHEET_NUMBER = None
 
-FILES = []
 COMMON_PART_ONLY = False
 # ---------------------------------------------------------------------------------------------------------------------------
 
@@ -146,10 +148,34 @@ def getFilePath():
 
     return [source, output]
 
+def getFilePath_fromArgs():
+    if len(argv) > 1:
+        source = argv[1]
+        log('FILE', 'Taking source file path from CLI arguments', source)
+    else:
+        return [None, None]
+
+    if len(argv) > 2:
+        output = argv[2]
+        log('FILE', 'Taking output file path from CLI arguments', output)
+    else:
+        directory, filename = path.split(source)
+        default_output_name = "_output_" + filename
+        output = path.join(directory, default_output_name)
+
+        log('FILE', 'Use default output file format', output)
+
+    return [source, output]
+
 
 def main():
     source, output = getFilePath()
     refactorWorkbook(source, output)
+
+if len(argv) > 1:
+    source, output = getFilePath_fromArgs()
+    refactorWorkbook(source, output)
+    exit()
 
 main()
 while True:
