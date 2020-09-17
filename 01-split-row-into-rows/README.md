@@ -38,3 +38,24 @@ SOURCE FILE: Source.xlsx
 [FILE]: Enter output file path ((relative / absolute)):
 OUTPUT FILE (_output_Source.xlsx): output.xlsx
 ```
+
+# Advanced Configuration
+There is a section called `Configurations` in the `main.py`. You can change some 
+advanced things by changing those variable values.
+
+**COMMON_PART_ONLY**
+> Line Number 39
+
+If this is `False` any row which don't have `id`s and 
+other stuff after that, will not be added to the output.
+If this is set to `True` all the entries will be added.
+Set this to true if you want to have all.
+
+**FILES**
+> Line Number 40
+
+List of source files (relative/absolute path).
+If this is empty script will prompt for source files.
+
+
+
