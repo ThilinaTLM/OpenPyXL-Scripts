@@ -40,8 +40,8 @@ OUTPUT FILE (_output_Source.xlsx): output.xlsx
 ```
 
 # Advanced Configuration
-There is a section called `Configurations` in the `main.py`. You can change some 
-advanced things by changing those variable values.
+There is a section called `Configurations` in the `main.py`. 
+You can have some advanced configuration options by changing values of those variables.git 
 
 **COMMON_PART_ONLY**
 > Line Number 39

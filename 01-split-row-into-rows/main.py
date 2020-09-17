@@ -37,7 +37,9 @@ START_SHEET_NUMBER = 0
 END_SHEET_NUMBER = None
 
 COMMON_PART_ONLY = True
-FILES = ['Source.xlsx']
+FILES = ['Source.xlsx']  # Source Files
+
+
 # ---------------------------------------------------------------------------------------------------------------------------
 
 def log(topic, msg, extra=""):
@@ -175,11 +177,13 @@ def getFilePath_fromArgs():
 
     return [source, output]
 
+
 def generateOutputPath(source):
     directory, filename = path.split(source)
     default_output_name = "_output_" + filename
 
     return path.join(directory, default_output_name)
+
 
 def main():
     source, output = getFilePath()
